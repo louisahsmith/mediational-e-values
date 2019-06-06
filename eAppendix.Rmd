@@ -1,0 +1,91 @@
+---
+title: "Tables and Figures for *Mediational E-values: Approximate Sensitivity Analysis for Unmeasured Mediator-Outcome Confounding*"
+output:
+  pdf_document
+---
+```{r setup, include = FALSE}
+if (!require("drake")) {install.packages("drake"); library(drake)}
+if (!require("xtable")) {install.packages("xtable"); library(xtable)}
+if (!require("ggplot2")) {install.packages("ggplot2"); library(ggplot2)}
+if (!require("captioner")) {install.packages("captioner"); library(captioner)}
+if (!require("knitr")) install.packages("knitr")
+
+knitr::opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  echo = FALSE,
+  fig.align = "center"
+)
+
+loadd(vals_4_rmd)
+
+table_nums <- captioner(prefix = "Table")
+
+table_nums(name = "overall_res")
+
+table_nums(name = "quant_rat_any")
+
+table_nums(name = "bias_add")
+
+figure_nums <- captioner(prefix = "Figure")
+
+figure_nums(name = "compare_corrected")
+
+figure_nums(name = "residual_bias")
+```
+
+\begin{singlespace}`r table_nums("overall_res")`\end{singlespace}
+```{r results = "asis"}
+do.call(print, readd(table1))
+```
+
+\begin{singlespace}`r figure_nums("compare_corrected")`\end{singlespace}
+```{r fig.height = 4, fig.width = 9}
+print(readd(compare_correctedA))
+```
+```{r fig.height = 4, fig.width = 9}
+print(readd(compare_correctedB))
+```
+```{r fig.height = 4, fig.width = 9}
+print(readd(compare_correctedC))
+```
+```{r fig.height = 4, fig.width = 9}
+print(readd(compare_correctedD))
+```
+
+\begin{singlespace}`r table_nums("quant_rat_any")`\end{singlespace}
+`r table_nums("quant_rat_any", display = "cite")`A. Probabilities drawn from uniform distribution
+```{r results = "asis"}
+do.call(print, readd(table2a))
+```
+`r table_nums("quant_rat_any", display = "cite")`B. Uniform probabilities; restricted to no qualitative interactions
+```{r results = "asis"}
+do.call(print, readd(table2b))
+```
+`r table_nums("quant_rat_any", display = "cite")`C. Log-linear model for $M$
+```{r results = "asis"}
+do.call(print, readd(table2c))
+```
+`r table_nums("quant_rat_any", display = "cite")`D. Log-linear model, restricted to no qualitative interaction
+```{r results = "asis"}
+do.call(print, readd(table2d))
+```
+
+\begin{singlespace}`r figure_nums("residual_bias")`\end{singlespace}
+```{r fig.height = 4, fig.width = 7.5}
+print(readd(resid_plotA))
+```
+```{r fig.height = 4, fig.width = 7.5}
+print(readd(resid_plotB))
+```
+```{r fig.height = 4, fig.width = 7.5}
+print(readd(resid_plotC))
+```
+```{r fig.height = 4, fig.width = 7.5}
+print(readd(resid_plotD))
+```
+
+\begin{singlespace}`r table_nums("bias_add")`\end{singlespace}
+```{r results = "asis"}
+do.call(print, readd(table3))
+```

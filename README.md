@@ -1,5 +1,6 @@
 # Computing code for *Mediational E-values: Approximate Sensitivity Analysis for Unmeasured Mediator-Outcome Confounding*
-## To be published in *Epidemiology*
+
+*Published as:* Smith LH, VanderWeele TJ. Mediational E-values: Approximate sensitivity analysis for unmeasured mediator-outcome confounding. Epidemiology. 2019;30(6):835-837. doi:10.1097/ede.0000000000001064
 
 The results can be replicated using the R scripts in this repository. The file `functions.R` contains the functions used to generate the data as well as produce the figures and tables. The file `make.R` applies these functions in the proper sequence and populates the `eAppendix.Rmd` file, producing `eAppendix.pdf` (the tables and figures of current document). Only the `make.R` script needs to be run to replicate the results.
 
